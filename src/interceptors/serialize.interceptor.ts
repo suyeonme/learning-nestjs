@@ -8,7 +8,14 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { plainToInstance } from 'class-transformer';
 
-// User Entity Instance => User DTO Instance => JSON
+// Interceptor: Entity Instance => DTO Instance => JSON
+
+/**
+ * @Decorator SerializeInterceptor
+ */
+export function Serialize(dto: any) {
+  return UseInterceptors(new SerializeInterceptor(dto));
+}
 
 export class SerializeInterceptor implements NestInterceptor {
   constructor(private dto: any) {}
