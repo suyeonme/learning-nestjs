@@ -8,12 +8,17 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { plainToInstance } from 'class-transformer';
 
-// Interceptor: Entity Instance => DTO Instance => JSON
+/**
+ * @summary Accept only class
+ */
+interface ClassConstructor {
+  new (...args: any[]): {};
+}
 
 /**
  * @Decorator SerializeInterceptor
  */
-export function Serialize(dto: any) {
+export function Serialize(dto: ClassConstructor) {
   return UseInterceptors(new SerializeInterceptor(dto));
 }
 
@@ -21,8 +26,8 @@ export class SerializeInterceptor implements NestInterceptor {
   constructor(private dto: any) {}
 
   intercept(
-    context: ExecutionContext,
-    handler: CallHandler,
+    context: ExecutionContext, // before request
+    handler: CallHandler, // before response
   ): Observable<any> | Promise<Observable<any>> {
     return handler.handle().pipe(
       map((data: any) => {
