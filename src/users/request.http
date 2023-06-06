@@ -16,6 +16,14 @@ Content-Type: application/json
     "password": "test"
 }
 
+### Sign out
+POST http://localhost:3000/auth/signout
+
+{
+    "email": "test@gmail.com",
+    "password": "test"
+}
+
 ###  Get the currently signed-in user
 GET http://localhost:3000/auth/whoami
 
