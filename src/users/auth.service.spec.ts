@@ -49,16 +49,16 @@ describe('AuthService', () => {
   });
 
   it('[signup] creates a new user with a slated and hashed password', async () => {
-    const user = await service.signup('suyeon@email.com', 'suyeonme');
+    const user = await service.signup('suyeon@email.com', 'suyeon');
     const [salt, hash] = user.password.split('.');
     expect(salt).toBeDefined();
     expect(hash).toBeDefined();
   });
 
   it('[signup] throws an error if user signs up with email that is in use', async () => {
-    await service.signup('suyeon@email.com', 'suyeonme');
+    await service.signup('suyeon@email.com', 'suyeon');
     try {
-      await service.signup('suyeon@email.com', 'suyeonme');
+      await service.signup('suyeon@email.com', 'suyeon');
     } catch (error) {
       expect(error).toBeInstanceOf(BadRequestException);
       expect(error.message).toBe('email is use');
@@ -75,7 +75,7 @@ describe('AuthService', () => {
   });
 
   it('[signin] throws if an invalid password is provided', async () => {
-    await service.signup('suyeon@email.com', 'suyeonme');
+    await service.signup('suyeon@email.com', 'suyeon');
     try {
       await service.signin('suyeon@email.com', 'wrongpassword');
     } catch (error) {
@@ -85,8 +85,8 @@ describe('AuthService', () => {
   });
 
   it('[signin] returns a user if correct password is provided', async () => {
-    await service.signup('suyeon@email.com', 'suyeonme');
-    const user = await service.signin('suyeon@email.com', 'suyeonme');
+    await service.signup('suyeon@email.com', 'suyeon');
+    const user = await service.signin('suyeon@email.com', 'suyeon');
     expect(user).toBeDefined();
   });
 });
