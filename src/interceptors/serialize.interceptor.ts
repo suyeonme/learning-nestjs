@@ -9,14 +9,15 @@ import { map } from 'rxjs/operators';
 import { plainToInstance } from 'class-transformer';
 
 /**
- * @summary Accept only class
+ * @description Accept only class (typescript)
  */
 interface ClassConstructor {
   new (...args: any[]): {};
 }
 
 /**
- * @Decorator SerializeInterceptor
+ * @Decorator
+ * @description Convert entity to a plain javascript object
  */
 export function Serialize(dto: ClassConstructor) {
   return UseInterceptors(new SerializeInterceptor(dto));
