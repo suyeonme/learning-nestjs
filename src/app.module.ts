@@ -49,11 +49,13 @@ import { Report } from './reports/report.entity';
   ],
 })
 export class AppModule {
+  /**
+   * @Middleware Cookie-session
+   * This will run for every incoming request
+   */
   configure(consumer: MiddlewareConsumer) {
-    // This will run for every incoming request
     consumer
       .apply(
-        // middleware(authentication)
         cookieSession({
           keys: ['suyeonme'],
         }),
