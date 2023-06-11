@@ -41,5 +41,5 @@ PATCH http://localhost:3000/auth/4
 Content-Type: application/json
 
 {
-    "email": "suyeon@gmail.com",
+    "email": "suyeon@gmail.com"
 }

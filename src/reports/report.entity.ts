@@ -8,21 +8,21 @@ export class Report {
   @Column()
   price: number;
 
-  // @Column()
-  // make: string;
+  @Column()
+  make: string;
 
-  // @Column()
-  // model: string;
+  @Column()
+  model: string;
 
-  // @Column()
-  // year: number;
+  @Column()
+  year: number;
 
-  // @Column()
-  // lng: number;
+  @Column()
+  longitude: number;
 
-  // @Column()
-  // lat: number;
+  @Column()
+  latitude: number;
 
-  // @Column()
-  // mileage: number;
+  @Column()
+  mileage: number;
 }
