@@ -3,8 +3,8 @@ POST http://localhost:3000/auth/signup
 Content-Type: application/json
 
 {
-    "email": "suyeon@email.com",
-    "password": "suyeon123"
+    "email": "suyeon1@email.com",
+    "password": "suyeon1"
 }
 
 ### Sign in
@@ -12,8 +12,8 @@ POST http://localhost:3000/auth/signin
 Content-Type: application/json
 
 {
-    "email": "test@gmail.com",
-    "password": "test"
+    "email": "suyeon1@email.com",
+    "password": "suyeon1"
 }
 
 ### Sign out
