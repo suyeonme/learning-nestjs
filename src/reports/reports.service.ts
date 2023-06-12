@@ -5,7 +5,7 @@ import { Repository } from 'typeorm';
 import { GetEstimateDto } from './dtos';
 import { Report } from './report.entity';
 import { CreateReportDto } from './dtos/create-report.dto';
-import { User } from 'src/users/user.entity';
+import { User } from '../users/user.entity';
 
 @Injectable()
 export class ReportsService {

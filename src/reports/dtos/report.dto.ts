@@ -1,5 +1,4 @@
 import { Expose, Transform } from 'class-transformer';
-import { User } from 'src/users/user.entity';
 
 /**
  * @description DTO that describes how to serialize a report
