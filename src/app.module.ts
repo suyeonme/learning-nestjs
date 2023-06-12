@@ -49,6 +49,7 @@ import { Report } from './reports/report.entity';
   ],
 })
 export class AppModule {
+  constructor(private configService: ConfigService) {}
   /**
    * @Middleware Cookie-session
    * This will run for every incoming request
@@ -57,7 +58,7 @@ export class AppModule {
     consumer
       .apply(
         cookieSession({
-          keys: ['suyeonme'],
+          keys: [this.configService.get<string>('COOKIE_KEY')],
         }),
       )
       .forRoutes('*'); // target to every sinlge request
