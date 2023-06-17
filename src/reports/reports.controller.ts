@@ -9,7 +9,7 @@ import {
   Query,
 } from '@nestjs/common';
 
-import { AuthGuard, AdminGuard } from 'src/guards';
+import { AuthGuard, AdminGuard } from '../guards';
 import { Serialize } from '../interceptors';
 import { CurrentUser } from '../users/decorators/current-user.decorator';
 import { User } from '../users/user.entity';
